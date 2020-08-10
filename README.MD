@@ -38,7 +38,7 @@ testKey = 哈哈哈
 {testKey=哈哈哈}
 ```
 
-####使用方式
+#### 使用方式
 
     推荐直接导入 FirstIni.kt 使用,如果你在使用Java,拥抱kotlin吧！或者你也可以自己实现一个Java版本.
     只需要实现 代码中kotlin特有的几个方法,即 `writeTextToFile`和`readFile`
