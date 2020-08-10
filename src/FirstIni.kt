@@ -6,7 +6,6 @@ import java.io.IOException
  * ini 文件读写
  * @version 1.0
  * @author songdehuai
- * @date 2020-08-05
  */
 class FirstIni {
 
@@ -94,17 +93,14 @@ class FirstIni {
     }
 
     private fun readFile() {
-        val strings = StringBuffer()
-        var lineCounts = 0
-        val list = file?.readLines()?.also { lineCounts = it.size }
-        var nodeTmep = ""
-        list?.forEachIndexed { index, s ->
-            if (!s.isEmpty()) {
+        var nodeTemp = ""
+        file?.readLines()?.forEachIndexed { index, s ->
+            if (s.isNotEmpty()) {
                 if (isKey(s)) {
-                    nodeTmep = replaceKey(s)
-                    valueMaps[nodeTmep] = LinkedHashMap<String, Any?>()
+                    nodeTemp = replaceKey(s)
+                    valueMaps[nodeTemp] = LinkedHashMap<String, Any?>()
                 } else {
-                    valueMaps[nodeTmep]?.put(getKey(s), getValue(s))
+                    valueMaps[nodeTemp]?.put(getKey(s), getValue(s))
                 }
             }
         }
